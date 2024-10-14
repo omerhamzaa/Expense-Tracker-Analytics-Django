@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import UserView, IncomeView, IncomeCategoryView, ExpenseCategoryView, ExpenseView
+from .views import UserView, IncomeView, IncomeCategoryView, ExpenseCategoryView, ExpenseView, BudgetView, BudgetAlertView
 
 
 urlpatterns = [
@@ -19,5 +19,11 @@ urlpatterns = [
 
     path('expense_category/', ExpenseCategoryView.as_view(), name='Expense_category-detail'),
     path('expense_category/<int:pk>/', ExpenseCategoryView.as_view(), name='Expense_category-update'),
+
+    path('budget/', BudgetView.as_view(), name='BudgetView-detail'),
+    path('budget/<int:pk>/', BudgetView.as_view(), name='BudgetView-update'),
+
+    path('budget_alert/', BudgetAlertView.as_view(), name='Budget_alert_View-detail'),
+    path('budget_alert/<int:pk>/', BudgetAlertView.as_view(), name='Budget_alert_View-update'),
 
 ]
