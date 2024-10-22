@@ -17,8 +17,8 @@ import sys
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-sys.path.append(os.path.join(BASE_DIR, 'src'))           #add for src folder that i create for my code
-
+# sys.path.append(os.path.join(BASE_DIR, 'src'))           #add for src folder that i create for my code
+sys.path.append(str(BASE_DIR / 'src'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'expense_tracker_analytics.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # 'DIRS': [os.path.join(BASE_DIR, 'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

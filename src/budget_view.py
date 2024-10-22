@@ -31,9 +31,9 @@ def create_budget(request):
     try:
         user = User.objects.get(id=user_id)
     except User.DoesNotExist:
+
         return Response({"error": "User not found"}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Check if expense category exists
     try:
         expense_category = ExpenseCategory.objects.get(id=expense_category_id)
     except ExpenseCategory.DoesNotExist:

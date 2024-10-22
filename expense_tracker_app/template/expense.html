@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Expense Summary</h2>
+
+<h3>Total Expenses by Category</h3>
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Total Expense</th>
+    </tr>
+    {% for category in expense_summary_by_category %}
+    <tr>
+        <td>{{ category.expense_category__name }}</td>
+        <td>{{ category.total }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">No expenses found for this category.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Total Expenses by Date</h3>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Total Expense</th>
+    </tr>
+    {% for date in expense_summary_by_date %}
+    <tr>
+        <td>{{ date.date__date }}</td>
+        <td>{{ date.total }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">No expenses found for this date.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

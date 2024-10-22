@@ -33,7 +33,6 @@ def post(request):
     except ExpenseCategory.DoesNotExist:
         return Response({"error": "Expense category not found"}, status=status.HTTP_400_BAD_REQUEST)
 
-
     expense = Expense.objects.create(
         amount=amount,
         description=description,

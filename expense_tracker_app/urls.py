@@ -1,9 +1,14 @@
 from django.urls import path
 from . import views
-from .views import UserView, IncomeView, IncomeCategoryView, ExpenseCategoryView, ExpenseView, BudgetView, BudgetAlertView
+from .views import UserView, IncomeView, IncomeCategoryView, ExpenseCategoryView, ExpenseView, BudgetView, BudgetAlertView, download_report
 
 
 urlpatterns = [
+
+    path('expense-summary/', views.expense_summary, name='expense_summary'),
+    path('expense-summary/<str:period>/', views.expense_summary, name='expense_summary_period'),
+
+    path('download_report/<int:user_id>/', download_report, name='download_report'),
 
     path('users/', UserView.as_view(), name='user-list'),
     path('users/<int:pk>/', UserView.as_view(), name='user-detail'),
